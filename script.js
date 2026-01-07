@@ -58,7 +58,7 @@ let niveauActuel = 'facile';
 let indexQuestion = 0;
 let scoreNiveau = 0;
 let utilisateur = {};
-let tempsRestant = 5; 
+let tempsRestant = 10; 
 let intervalle;
 
 // 1. Démarrage du Quiz
@@ -76,7 +76,7 @@ document.getElementById('quiz-form').onsubmit = (e) => {
 // 2. Gestion du Chronomètre
 function lancerChrono() {
     clearInterval(intervalle); 
-    tempsRestant = 5;
+    tempsRestant = 10;
     
     const bar = document.getElementById('timer-bar');
     const secondesSpan = document.getElementById('secondes');
@@ -93,10 +93,10 @@ function lancerChrono() {
     intervalle = setInterval(() => {
         tempsRestant--;
         secondesSpan.innerText = tempsRestant;
-        bar.style.width = (tempsRestant / 5 * 100) + "%";
+        bar.style.width = (tempsRestant / 10 * 100) + "%";
 
         // Alerte visuelle quand il reste peu de temps
-        if (tempsRestant <= 2) {
+        if (tempsRestant <= 4) {
             bar.style.backgroundColor = "#ff9900"; 
         }
 
@@ -186,4 +186,5 @@ function passerAuNiveauSuivant() {
     document.getElementById('quiz-container').classList.remove('cache');
     
     chargerQuestion();
+
 }
