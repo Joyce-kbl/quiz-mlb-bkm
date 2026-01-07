@@ -1,7 +1,7 @@
 // Base de données des questions
 const questionsData = {
     facile: [
-        { q: "De quelle couleur est la bordure des mlb-bkm ?", options: ["Rouge", "Jaune", "Blanc", "Vert"], correct: 2 },
+        { q: "De quelle couleur est la bordure des mlb-bkm ?", options: ["Rouge", "Jaune", "Blanche", "Verte"], correct: 2 },
         { q: "Quel signal de rassemblement est exécuté par le robot roulage lorsqu'il affiche du vert?",options:["En ligne","en carré","en étoile","en cercle"],correct:0},
         { q: "Combien de signaux de rassemblement avons-nous ?", options:["10","8","7","5"], correct: 2},
         { q: "Quel organe correspond au sens : Le goût", options:["le nez","la langue","l'oeil","la peau"], correct: 1},
@@ -13,8 +13,8 @@ const questionsData = {
         { q: "Comment appelle t on celui qui appose des affiches",options:["Affichiste","Affichette","Afficheur","Pancarte"], correct:2},
         { q: "Quel est moyen de rassemblement intru", options:["sifflet","battement des mains","code morse","Tam-Tam"],correct:2},
         { q: "Combien avons-nous de sorte de cirage", options:["1","2","3","4"], correct:1},
-        { q: "Quel nombre correspond aux signes directionnels",options:["14","15","12","51","13"], correct:0},
-        { q: "Intersection des routes?",options:["Troittoir","Carrefour","Macadam","Passerelle"],correct:1},
+        { q: "Quel nombre correspond aux signes directionnels",options:["14","15","12","51"], correct:0},
+        { q: "comment appelle t on l'intersection des routes?",options:["Troittoir","Carrefour","Macadam","Passerelle"],correct:1},
         { q: "Lequel n'est pas un noeud de bout",options:["Noeud simple","Noeud en huit","Noeud de capucin","Noeud de batelier"],correct:3},
         
     ],
@@ -44,13 +44,13 @@ const questionsData = {
         { q: "En quelle année a été inventé la 1er montre bracelet par Louis CARTIER",options:["1904","1987","2001","1989"],correct:0},
         { q: "En quelle année a été inventé le bouton pression par Bertel SANDERS", options:["1904","1987","2001","1885"], correct:3},
         { q: "Quel scarf du groupe KA a le même initiales que de par sa couleur que le drapeau du DCMP",options:["Ass","CP","MKS","LWG"],correct:1},
-        { q: "Quel ancien Mulumba de la paroisse Sainte Marie-Goretti fut composé l'hymne des KA?",options:["J.MAZEBO","A.MANSUA","G.KOKO","L.KANIKI"],correct:1},
+        { q: "Quel ancien Mulumba de la paroisse Sainte Marie-Goretti est le compositeur de l'hymne des KA?",options:["J.MAZEBO","A.MANSUA","G.KOKO","L.KANIKI"],correct:1},
         { q: "Quel était le prénom saint MULUMBA?", options:["Jean-Baptiste","Matthias","Jude","Jean"],correct:1},
         { q: "Quel noeud sert à attacher une corde à un arbre ou un piquet?",options:["Noeud de Batelier","Noeud en huit","Noeud simple","Noeud de chaise simple"], correct:0},
         { q: "Quelle signe de piste interdit aux initiés (KA) de placer différents signes dans un trajet plus ou moins droit", options:["Chemin à suivre","chemin barré","Signe interrompus sur 200 pas","Danger"],correct:2},
         { q: "Par qui fut créé le semaphore maritime en 1806",options:["C.CHAPPE","L.JACOB","D.JURDVIC","J.BILONGO"], correct: 1},
         { q: "Combien de signe comprend l'alphabet semaphore", options:["28","10","26","38"], correct:0},
-        { q: "Main droite en F, main gauche en G,",options :["W","X","Z","J"], correct:2},
+        { q: "SEMAPHORE: Main droite en F, main gauche en G,",options :["W","X","Z","J"], correct:2},
     ]
 };
 
@@ -58,7 +58,7 @@ let niveauActuel = 'facile';
 let indexQuestion = 0;
 let scoreNiveau = 0;
 let utilisateur = {};
-let tempsRestant = 10; 
+let tempsRestant = 15; 
 let intervalle;
 
 // 1. Démarrage du Quiz
@@ -76,7 +76,7 @@ document.getElementById('quiz-form').onsubmit = (e) => {
 // 2. Gestion du Chronomètre
 function lancerChrono() {
     clearInterval(intervalle); 
-    tempsRestant = 10;
+    tempsRestant = 15;
     
     const bar = document.getElementById('timer-bar');
     const secondesSpan = document.getElementById('secondes');
@@ -93,10 +93,10 @@ function lancerChrono() {
     intervalle = setInterval(() => {
         tempsRestant--;
         secondesSpan.innerText = tempsRestant;
-        bar.style.width = (tempsRestant / 10 * 100) + "%";
+        bar.style.width = (tempsRestant / 15 * 100) + "%";
 
         // Alerte visuelle quand il reste peu de temps
-        if (tempsRestant <= 4) {
+        if (tempsRestant <= 5) {
             bar.style.backgroundColor = "#ff9900"; 
         }
 
@@ -188,3 +188,4 @@ function passerAuNiveauSuivant() {
     chargerQuestion();
 
 }
+
