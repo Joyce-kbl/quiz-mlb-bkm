@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz MLB-BKM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="main-wrapper">
+        <div id="form-container" class="card">
+            <h1 class="text-red">Inscription Quiz</h1>
+            <p>Remplissez vos informations pour débuter</p>
+            <form id="quiz-form">
+                <input type="text" id="prenom" placeholder="Prénom" required>
+                <input type="text" id="nom" placeholder="Nom" required>
+                <input type="text" id="role" placeholder="Rôle" required>
+                <input type="text" id="clan" placeholder="Clan" required>
+                <input type="text" id="doyenne" placeholder="Doyenné" required>
+                <button type="submit" class="btn-main">ENTRER</button>
+            </form>
+        </div>
+
+        <div id="quiz-container" class="card cache">
+            <div class="header-user">
+                <h2 id="salutation" class="text-red"></h2>
+                <div id="niveau-badge">NIVEAU : FACILE</div>
+            </div>
+              <div id="timer-container">
+    <div id="timer-bar" style="width: 100%; height: 5px; background: red; transition: width 1s linear;"></div>
+    <p>Temps restant : <span id="secondes">5</span>s</p>
+</div>
+            <div class="question-section">
+                <p id="compteur">Question 1 / 15</p>
+                <h3 id="question-texte"></h3>
+                <div id="options-container"></div>
+            </div>
+        </div>
+
+        <div id="result-container" class="card cache">
+            <h2 class="text-red">Résultat</h2>
+            <div class="circle-score">
+                <span id="score-val">0</span><small>/15</small>
+            </div>
+            <p id="message-final"></p>
+            <div class="actions">
+                <button id="btn-suivant" class="btn-main cache" onclick="passerAuNiveauSuivant()">NIVEAU SUIVANT</button>
+                <button class="btn-outline" onclick="location.reload()">RECOMMENCER</button>
+            </div>
+        </div>
+      <i>Quiz Joyce kbl</i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

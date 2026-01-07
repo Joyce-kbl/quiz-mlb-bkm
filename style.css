@@ -1,0 +1,105 @@
+:root {
+    --rouge: #FF0000;
+    --blanc: #FFFFFF;
+    --gris-clair: #f9f9f9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background-color: var(--blanc);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    border: 3px solid var(--rouge);
+    border-radius: 20px;
+    padding: 25px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
+    text-align: center;
+}
+
+.text-red { color: var(--rouge); text-transform: uppercase; }
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px; /* Évite le zoom auto sur iPhone */
+}
+
+.btn-main {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--rouge);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-outline {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--rouge);
+    border: 1px solid var(--rouge);
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Grille de réponses responsive */
+#options-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    gap: 12px;
+    margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+    #options-container {
+        grid-template-columns: 1fr 1fr; /* 2 colonnes sur tablette/PC */
+    }
+}
+
+.circle-score {
+    width: 120px;
+    height: 120px;
+    border: 10px solid var(--rouge);
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--rouge);
+}
+
+.cache { display: none; }
+#timer-container {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff5f5;
+    border-radius: 10px;
+}
+
+#timer-bar {
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
